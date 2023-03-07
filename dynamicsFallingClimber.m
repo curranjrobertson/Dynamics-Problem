@@ -36,112 +36,112 @@ wp = ((m*r)/Ig).*sqrt(4.*h.*g) + m*rg*V2.*sin(theta).^2; % angular velocity in k
 % Sum of the forces in the t-direction
 F = m*g.*cos(theta);
 
-% Plot Functions vs. theta
-figure
-
-plot(theta, V2t)
-hold on
-grid on
-title('Velocity vs. Theta')
-xlabel('theta (rad)')
-ylabel('Velocity (ft/s)')
-%legend
-hold off
-
-figure
-
-plot(theta, wp)
-hold on
-grid on
-title('Angular Velocity vs. Theta')
-xlabel('theta (rad)')
-ylabel('Angular Velocity (rad/s)')
-%legend
-hold off
-
-figure
-
-plot(theta,F)
-hold on
-grid on
-title('Tension Force vs. Theta')
-xlabel('theta (rad)')
-ylabel('Tension (lbmft/s^2)')
-%legend
-hold off
-
-figure
-
-% Height vs Functions
-plot(h, V2t)
-hold on
-grid on
-title('Velocity vs. Height')
-xlabel('height (feet)')
-ylabel('Velocity (ft/s)')
-%legend
-hold off
-
-figure
-
-plot(h, wp)
-hold on
-grid on
-title('Angular Velocity vs. Height')
-xlabel('height (feet)')
-ylabel('Angular Velocity (rad/s)')
-%legend
-hold off
-
-figure
-
-plot(h,F)
-hold on
-grid on
-title('Tension Force vs. Height')
-xlabel('Height (feet)')
-ylabel('Tension (lbmft/s^2)')
-%legend
-hold off
-
-figure
-
-% Distance from wall vs functions
-plot(d, V2t)
-hold on
-grid on
-title('Velocity vs. Distance from Wall')
-xlabel('distance (feet)')
-ylabel('Velocity (ft/s)')
-%legend
-hold off
-
-figure
-
-plot(d, wp)
-hold on
-grid on
-title('Angular Velocity vs. Distance From Wall')
-xlabel('distance (feet)')
-ylabel('Angular Velocity (rad/s)')
-%legend
-hold off
-
-figure
-
-plot(d,F)
-hold on
-grid on
-title('Tension Force vs. Distance From Wall')
-xlabel('Distance (feet)')
-ylabel('Tension (lbmft/s^2)')
-%legend
-hold off
+% % Plot Functions vs. theta
+% figure
+% 
+% plot(theta, V2t)
+% hold on
+% grid on
+% title('Velocity vs. Theta')
+% xlabel('theta (rad)')
+% ylabel('Velocity (ft/s)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% plot(theta, wp)
+% hold on
+% grid on
+% title('Angular Velocity vs. Theta')
+% xlabel('theta (rad)')
+% ylabel('Angular Velocity (rad/s)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% plot(theta,F)
+% hold on
+% grid on
+% title('Tension Force vs. Theta')
+% xlabel('theta (rad)')
+% ylabel('Tension (lbmft/s^2)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% % Height vs Functions
+% plot(h, V2t)
+% hold on
+% grid on
+% title('Velocity vs. Height')
+% xlabel('height (feet)')
+% ylabel('Velocity (ft/s)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% plot(h, wp)
+% hold on
+% grid on
+% title('Angular Velocity vs. Height')
+% xlabel('height (feet)')
+% ylabel('Angular Velocity (rad/s)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% plot(h,F)
+% hold on
+% grid on
+% title('Tension Force vs. Height')
+% xlabel('Height (feet)')
+% ylabel('Tension (lbmft/s^2)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% % Distance from wall vs functions
+% plot(d, V2t)
+% hold on
+% grid on
+% title('Velocity vs. Distance from Wall')
+% xlabel('distance (feet)')
+% ylabel('Velocity (ft/s)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% plot(d, wp)
+% hold on
+% grid on
+% title('Angular Velocity vs. Distance From Wall')
+% xlabel('distance (feet)')
+% ylabel('Angular Velocity (rad/s)')
+% %legend
+% hold off
+% 
+% figure
+% 
+% plot(d,F)
+% hold on
+% grid on
+% title('Tension Force vs. Distance From Wall')
+% xlabel('Distance (feet)')
+% ylabel('Tension (lbmft/s^2)')
+% %legend
+% hold off
 
 % Plot Functions vs. h and d
 figure
 
-plot3(h,d, V2t)
+mesh(h,d,V2t)
 hold on
 grid on
 title('Velocity as a function of Height and Distance')
@@ -153,7 +153,7 @@ hold off
 
 figure
 
-plot3(h,d, wp)
+mesh(h,d,wp)
 hold on
 grid on
 title('Angular Velocity as a function of Height and Distance')
@@ -165,7 +165,7 @@ hold off
 
 figure
 
-plot3(h,d,F)
+mesh(h,d,F)
 hold on
 grid on
 title('Tension Force as a function of Hieght and Distance')
