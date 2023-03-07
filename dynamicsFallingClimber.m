@@ -17,7 +17,7 @@ d = (0:t/20:5)'; % distance from wall varies from 0 to 5 feet (column vector)
 
 % Derived Constants
 m = W/g; % mass
-Ig = (1/12)*m*(3*r^2+a^2); % Moment of inertia
+Ig = (1/12)*m*(3*r^2+a^2); % Moment of inertia of a cylinder
 rg = sqrt(r^2+y^2); % distance from T to G
 
 % Derived Variables
@@ -36,6 +36,7 @@ wp = ((m*r)/Ig).*sqrt(4.*h.*g) + m*rg*V2.*sin(theta).^2; % angular velocity in k
 % Sum of the forces in the t-direction
 F = m*g.*cos(theta);
 
+% Plot Functions vs. theta
 plot(theta, V2t)
 hold on
 grid on
@@ -111,7 +112,7 @@ hold off
 
 figure
 
-plot(h, wp)
+plot(d, wp)
 hold on
 grid on
 title('Angular Velocity vs. Distance From Wall')
@@ -122,7 +123,7 @@ hold off
 
 figure
 
-plot(h,F)
+plot(d,F)
 hold on
 grid on
 title('Tension Force vs. Distance From Wall')
