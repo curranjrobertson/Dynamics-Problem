@@ -37,6 +37,8 @@ wp = ((m*r)/Ig).*sqrt(4.*h.*g) + m*rg*V2.*sin(theta).^2; % angular velocity in k
 F = m*g.*cos(theta);
 
 % Plot Functions vs. theta
+figure
+
 plot(theta, V2t)
 hold on
 grid on
@@ -67,6 +69,8 @@ xlabel('theta (rad)')
 ylabel('Tension (lbmft/s^2)')
 %legend
 hold off
+
+figure
 
 % Height vs Functions
 plot(h, V2t)
@@ -100,6 +104,8 @@ ylabel('Tension (lbmft/s^2)')
 %legend
 hold off
 
+figure
+
 % Distance from wall vs functions
 plot(d, V2t)
 hold on
@@ -131,6 +137,46 @@ xlabel('Distance (feet)')
 ylabel('Tension (lbmft/s^2)')
 %legend
 hold off
+
+% Plot Functions vs. h and d
+figure
+
+plot3(h,d, V2t)
+hold on
+grid on
+title('Velocity as a function of Height and Distance')
+xlabel('Height (feet)')
+ylabel('Distance (feet)')
+zlabel('Velocity (ft/s)')
+%legend
+hold off
+
+figure
+
+plot3(h,d, wp)
+hold on
+grid on
+title('Angular Velocity as a function of Height and Distance')
+xlabel('Height (ft)')
+ylabel('Distance (ft)')
+zlabel('Angular Velocity (rad/s)')
+%legend
+hold off
+
+figure
+
+plot3(h,d,F)
+hold on
+grid on
+title('Tension Force as a function of Hieght and Distance')
+xlabel('Height (ft)')
+ylabel('Distance (ft)')
+zlabel('Tension Force (lbmft/s^2')
+%legend
+hold off
+
+
+
 
 
 
