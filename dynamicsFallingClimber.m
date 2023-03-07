@@ -12,8 +12,11 @@ W = 190; % weight is 190 lbf
 
 % Variables
 t = 0.1; % step constant
-h = 0:t:100; % height varies from 0 to 100 feet
-d = (0:t/20:5)'; % distance from wall varies from 0 to 5 feet (column vector)
+h = (0:t:100); % height varies from 0 to 100 feet
+d = (0:t/20:5); % distance from wall varies from 0 to 5 feet (column vector)
+
+% Create meshgrid for h and d
+[H,D] = meshgrid(h,d);
 
 % Derived Constants
 m = W/g; % mass
@@ -21,127 +24,25 @@ Ig = (1/12)*m*(3*r^2+a^2); % Moment of inertia of a cylinder
 rg = sqrt(r^2+y^2); % distance from T to G
 
 % Derived Variables
-theta = atan(d./h); % angle
-L = h./cos(theta); % length of rope
+theta = atan(D./H); % angle
+L = H./cos(theta); % length of rope
 
 % Conservation of Energy
-V2 = sqrt(4.*h.*g); % velocity at bottom of fall
+V2 = sqrt(4.*H.*g); % velocity at bottom of fall
 
 % Principal of Linear Impulse and Momentum
 V2t = V2.*sin(theta); % Velocity in the t-direction after impact
 
 % Conservation of Angular Momentum
-wp = ((m*r)/Ig).*sqrt(4.*h.*g) + m*rg*V2.*sin(theta).^2; % angular velocity in k direction after impact
+wp = ((m*r)/Ig).*sqrt(4.*H.*g) + m*rg.*V2t.*(sin(theta).^2); % angular velocity in k direction after impact
 
 % Sum of the forces in the t-direction
 F = m*g.*cos(theta);
 
-% % Plot Functions vs. theta
-% figure
-% 
-% plot(theta, V2t)
-% hold on
-% grid on
-% title('Velocity vs. Theta')
-% xlabel('theta (rad)')
-% ylabel('Velocity (ft/s)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% plot(theta, wp)
-% hold on
-% grid on
-% title('Angular Velocity vs. Theta')
-% xlabel('theta (rad)')
-% ylabel('Angular Velocity (rad/s)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% plot(theta,F)
-% hold on
-% grid on
-% title('Tension Force vs. Theta')
-% xlabel('theta (rad)')
-% ylabel('Tension (lbmft/s^2)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% % Height vs Functions
-% plot(h, V2t)
-% hold on
-% grid on
-% title('Velocity vs. Height')
-% xlabel('height (feet)')
-% ylabel('Velocity (ft/s)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% plot(h, wp)
-% hold on
-% grid on
-% title('Angular Velocity vs. Height')
-% xlabel('height (feet)')
-% ylabel('Angular Velocity (rad/s)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% plot(h,F)
-% hold on
-% grid on
-% title('Tension Force vs. Height')
-% xlabel('Height (feet)')
-% ylabel('Tension (lbmft/s^2)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% % Distance from wall vs functions
-% plot(d, V2t)
-% hold on
-% grid on
-% title('Velocity vs. Distance from Wall')
-% xlabel('distance (feet)')
-% ylabel('Velocity (ft/s)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% plot(d, wp)
-% hold on
-% grid on
-% title('Angular Velocity vs. Distance From Wall')
-% xlabel('distance (feet)')
-% ylabel('Angular Velocity (rad/s)')
-% %legend
-% hold off
-% 
-% figure
-% 
-% plot(d,F)
-% hold on
-% grid on
-% title('Tension Force vs. Distance From Wall')
-% xlabel('Distance (feet)')
-% ylabel('Tension (lbmft/s^2)')
-% %legend
-% hold off
-
 % Plot Functions vs. h and d
 figure
 
-mesh(h,d,V2t)
+mesh(H,D,V2t)
 hold on
 grid on
 title('Velocity as a function of Height and Distance')
@@ -153,7 +54,7 @@ hold off
 
 figure
 
-mesh(h,d,wp)
+mesh(H,D,wp)
 hold on
 grid on
 title('Angular Velocity as a function of Height and Distance')
@@ -165,13 +66,13 @@ hold off
 
 figure
 
-mesh(h,d,F)
+mesh(H,D,F)
 hold on
 grid on
-title('Tension Force as a function of Hieght and Distance')
+title('Tension Force as a function of Height and Distance')
 xlabel('Height (ft)')
 ylabel('Distance (ft)')
-zlabel('Tension Force (lbmft/s^2')
+zlabel('Tension Force (slugs)')
 %legend
 hold off
 
