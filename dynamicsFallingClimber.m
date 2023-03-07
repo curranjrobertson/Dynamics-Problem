@@ -25,7 +25,7 @@ theta = atan(d./h); % angle
 L = h./cos(theta); % length of rope
 
 % Conservation of Energy
-V2 = sqrt(4.*h.*g) % velocity at bottom of fall
+V2 = sqrt(4.*h.*g); % velocity at bottom of fall
 
 % Principal of Linear Impulse and Momentum
 V2t = V2.*sin(theta); % Velocity in the t-direction after impact
@@ -41,7 +41,7 @@ plot(theta, V2t)
 hold on
 grid on
 title('Velocity vs. Theta')
-xlabel('theta')
+xlabel('theta (rad)')
 ylabel('Velocity (ft/s)')
 %legend
 hold off
@@ -52,7 +52,7 @@ plot(theta, wp)
 hold on
 grid on
 title('Angular Velocity vs. Theta')
-xlabel('theta')
+xlabel('theta (rad)')
 ylabel('Angular Velocity (rad/s)')
 %legend
 hold off
@@ -63,7 +63,7 @@ plot(theta,F)
 hold on
 grid on
 title('Tension Force vs. Theta')
-xlabel('theta')
+xlabel('theta (rad)')
 ylabel('Tension (lbmft/s^2)')
 %legend
 hold off
@@ -95,7 +95,7 @@ plot(h,F)
 hold on
 grid on
 title('Tension Force vs. Height')
-xlabel('Height')
+xlabel('Height (feet)')
 ylabel('Tension (lbmft/s^2)')
 %legend
 hold off
