@@ -75,12 +75,3 @@ ylabel('Distance (ft)')
 zlabel('Tension Force (slugs)')
 %legend
 hold off
-
-
-
-
-
-
-
-
-
