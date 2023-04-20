@@ -72,6 +72,6 @@ grid on
 title('Tension Force as a function of Height and Distance')
 xlabel('Height (ft)')
 ylabel('Distance (ft)')
-zlabel('Tension Force (slugs)')
+zlabel('Tension Force (lbf)')
 %legend
 hold off
