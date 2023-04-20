@@ -37,7 +37,7 @@ V2t = V2.*sin(theta); % Velocity in the t-direction after impact
 wp = ((m*r)/Ig).*sqrt(4.*H.*g) + m*rg.*V2t.*(sin(theta).^2); % angular velocity in k direction after impact
 
 % Sum of the forces in the t-direction
-F = m*g.*cos(theta);
+F = m*g.*cos(theta) + m.*V2.^2./L
 
 % Plot Functions vs. h and d
 figure
